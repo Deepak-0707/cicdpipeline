@@ -5,10 +5,24 @@ pipeline
     {
         DOCKER="C:/Program Files/Docker/Docker/resources/bin/docker.exe"
         IMAGE_NAME="app"
-        IMAGE_TAG="latest-ci"
+        IMAGE_TAG="build-${BUILD_NUMBER}"
     }
     stages
     {
+        stage("Checking out code")
+        {
+            steps
+            {
+                checkout scm
+            }
+        }
+        stage("Testing the code")
+        {
+            steps
+            {
+                bat python -m py_compile app.py
+            }
+        }
         stage("Builiding Docker Image")
         {
             steps
