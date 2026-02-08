@@ -8,6 +8,6 @@ class SimpleHandler(BaseHTTPRequestHandler):
         self.wfile.write(b"Hello from version 1. Application is running successfully.\n")
 
 if __name__ == "__main__":
-    server = HTTPServer(("0.0.0.0", 8080), SimpleHandler)
+    server = HTTPServer(("0.0.0.0", 8081), SimpleHandler)
     print("Starting server on port 8080")
     server.serve_forever()
