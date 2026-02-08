@@ -35,7 +35,7 @@ pipeline
         always
         {
             echo "Cleaning up"
-            cleanWS()
+            deleteDir()
         }
     }
 }
