@@ -5,15 +5,21 @@ pipeline
     {
         DOCKER='"C:/Program Files/Docker/Docker/resources/bin/docker.exe"'
     }
-    steps
+    stages
     {
-        step("Builiding Docker Image")
+        stage("Builiding Docker Image")
         {
+            steps
+            {
             bat "%DOCKER% build -t app ."
+            }
         }
-        step("Docker Tagging")
+        stage("Docker Tagging")
         {
+            steps
+            {
             bat "%DOCKER% tag $app:$sample $app:latest-ci"
+            }
         }
     }
     post
