@@ -20,7 +20,7 @@ pipeline
         {
             steps
             {
-                bat python -m py_compile app.py
+                bat "python -m py_compile app.py"
             }
         }
         stage("Builiding Docker Image")
