@@ -3,7 +3,7 @@ pipeline
     agent any
     environment
     {
-        DOCKER='"C:/Program Files/Docker/Docker/resources/bin/docker.exe"'
+        DOCKER="C:/Program Files/Docker/Docker/resources/bin/docker.exe"
         IMAGE_NAME="app"
         IMAGE_TAG="latest-ci"
     }
