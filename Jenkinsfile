@@ -4,6 +4,8 @@ pipeline
     environment
     {
         DOCKER='"C:/Program Files/Docker/Docker/resources/bin/docker.exe"'
+        IMAGE_NAME="app"
+        IMAGE_TAG="latest-ci"
     }
     stages
     {
@@ -11,14 +13,14 @@ pipeline
         {
             steps
             {
-            bat "%DOCKER% build -t app ."
+            bat "\"${env.DOCKER}\" build -t ${env.IMAGE_NAME} ."
             }
         }
         stage("Docker Tagging")
         {
             steps
             {
-            bat "%DOCKER% tag $app:$sample $app:latest-ci"
+            bat "\"${env.DOCKER}\" tag ${env.IMAGE_NAME}:latest ${env.IMAGE_NAME}:${env.IMAGE_TAG}"
             }
         }
     }
